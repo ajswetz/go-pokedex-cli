@@ -1,8 +1,12 @@
 package main
 
-import "fmt"
+import (
+	"fmt"
 
-func commandHelp() error {
+	"github.com/ajswetz/go-pokedex-cli/internal/pokeapi"
+)
+
+func commandHelp(config *pokeapi.Config, _ string) error {
 	fmt.Println()
 	fmt.Println("Welcome to the Pokedex!")
 	fmt.Println("Usage:")

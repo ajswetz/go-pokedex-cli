@@ -1,9 +1,11 @@
 package main
 
+import "github.com/ajswetz/go-pokedex-cli/internal/pokeapi"
+
 type cliCommand struct {
 	name        string
 	description string
-	callback    func() error
+	callback    func(*pokeapi.Config, string) error
 }
 
 func getCommands() map[string]cliCommand {
@@ -18,6 +20,26 @@ func getCommands() map[string]cliCommand {
 			name:        "exit",
 			description: "Exit the Pokedex",
 			callback:    commandExit,
+		},
+		"map": {
+			name:        "map",
+			description: "Displays the next 20 names of location areas in the Pokemon world",
+			callback:    pokeapi.CommandMap,
+		},
+		"mapb": {
+			name:        "mapb",
+			description: "Displays the previous 20 names of location areas in the Pokemon world",
+			callback:    pokeapi.CommandMapB,
+		},
+		"explore": {
+			name:        "explore",
+			description: "Shows a list of Pokemon available in a given location",
+			callback:    pokeapi.CommandExplore,
+		},
+		"catch": {
+			name:        "catch",
+			description: "Attempt to catch a pokemon by name",
+			callback:    pokeapi.CommandCatch,
 		},
 	}
 
