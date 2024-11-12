@@ -6,6 +6,8 @@ import (
 
 func CommandPokedex(config *Config, _ string) error {
 
+	fmt.Println()
+
 	if len(config.Pokemon) == 0 {
 		return fmt.Errorf("pokedex empty - you haven't caught any Pokemon yet")
 	}

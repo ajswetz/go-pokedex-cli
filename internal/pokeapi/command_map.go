@@ -9,6 +9,8 @@ import (
 
 func CommandMap(config *Config, _ string) error {
 
+	fmt.Println()
+
 	if config.Next == "" {
 		return fmt.Errorf("end of map reached - no more locations to query")
 	}

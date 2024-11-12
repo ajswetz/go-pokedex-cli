@@ -9,6 +9,8 @@ import (
 
 func CommandMapB(config *Config, _ string) error {
 
+	fmt.Println()
+
 	if config.Previous == nil {
 		return fmt.Errorf("no previous location available - try using the `map` command first")
 	}

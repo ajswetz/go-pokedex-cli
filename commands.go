@@ -18,7 +18,7 @@ func getCommands() map[string]cliCommand {
 		},
 		"exit": {
 			name:        "exit",
-			description: "Exit the Pokedex",
+			description: "Exits the Pokedex",
 			callback:    commandExit,
 		},
 		"map": {
@@ -38,7 +38,7 @@ func getCommands() map[string]cliCommand {
 		},
 		"catch": {
 			name:        "catch",
-			description: "Attempt to catch a pokemon by name",
+			description: "Attempts to catch a pokemon by name",
 			callback:    pokeapi.CommandCatch,
 		},
 		"inspect": {
@@ -48,7 +48,7 @@ func getCommands() map[string]cliCommand {
 		},
 		"pokedex": {
 			name:        "pokedex",
-			description: "Pirnts a list of all Pokemon you have caught",
+			description: "Prints a list of all Pokemon you have caught",
 			callback:    pokeapi.CommandPokedex,
 		},
 	}

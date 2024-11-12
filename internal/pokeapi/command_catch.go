@@ -10,6 +10,8 @@ import (
 
 func CommandCatch(config *Config, pokemon string) error {
 
+	fmt.Println()
+
 	if _, ok := config.Pokemon[pokemon]; ok {
 		return fmt.Errorf("%s is already in your pokedex", pokemon)
 	}
@@ -53,6 +55,7 @@ func CommandCatch(config *Config, pokemon string) error {
 	if rand.Intn(baseExperience) >= int(cutoff) {
 		// successfully caught pokemon
 		fmt.Printf("%s was caught!\n", pokemon)
+		fmt.Printf("Adding %s to your pokedex...\n", pokemon)
 		config.Pokemon[pokemon] = Pokemon{
 			Name:   pokemonDetails.Name,
 			Height: pokemonDetails.Height,

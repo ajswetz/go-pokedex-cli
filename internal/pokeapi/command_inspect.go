@@ -6,6 +6,8 @@ import (
 
 func CommandInspect(config *Config, pokemon string) error {
 
+	fmt.Println()
+
 	if _, ok := config.Pokemon[pokemon]; !ok {
 		return fmt.Errorf("cannot inspect %s - you must catch a Pokemon before you can inspect it", pokemon)
 	}

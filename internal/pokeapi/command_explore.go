@@ -9,6 +9,8 @@ import (
 
 func CommandExplore(config *Config, location string) error {
 
+	fmt.Println()
+
 	const baseURL = "https://pokeapi.co/api/v2/location-area/"
 	fullURL := baseURL + location
 

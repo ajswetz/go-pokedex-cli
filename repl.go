@@ -27,6 +27,7 @@ func startRepl() {
 	// Use an infinite for loop to keep the REPL running.
 	for {
 		// At the start of the loop, you should block and wait for some input.
+		fmt.Println()
 		input, err := line.Prompt("Pokedex > ")
 		if err != nil {
 			fmt.Printf("Error reading line: %v\n", err)

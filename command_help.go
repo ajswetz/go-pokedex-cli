@@ -15,6 +15,5 @@ func commandHelp(config *pokeapi.Config, _ string) error {
 		fmt.Printf("%s: %s\n", cmd.name, cmd.description)
 	}
 
-	fmt.Println()
 	return nil
 }
