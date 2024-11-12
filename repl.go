@@ -1,14 +1,13 @@
 package main
 
 import (
-	"bufio"
 	"fmt"
-	"os"
 	"strings"
 	"time"
 
 	"github.com/ajswetz/go-pokedex-cli/internal/pokeapi"
 	"github.com/ajswetz/go-pokedex-cli/internal/pokecache"
+	"github.com/peterh/liner"
 )
 
 func startRepl() {
@@ -21,17 +20,21 @@ func startRepl() {
 		Pokemon:  make(map[string]pokeapi.Pokemon),
 	}
 
-	// initiate scanner on standard input
-	replScanner := bufio.NewScanner(os.Stdin)
+	// Liner stuff
+	line := liner.NewLiner()
+	defer line.Close()
 
 	// Use an infinite for loop to keep the REPL running.
 	for {
 		// At the start of the loop, you should block and wait for some input.
-		fmt.Print("Pokedex > ")
-		replScanner.Scan()
+		input, err := line.Prompt("Pokedex > ")
+		if err != nil {
+			fmt.Printf("Error reading line: %v\n", err)
+		}
+		line.AppendHistory(input)
 
 		// Once input is received, you should parse it and then execute a command.
-		words := cleanInput(replScanner.Text())
+		words := cleanInput(input)
 		if len(words) == 0 {
 			// blank input - continue to next loop iteration
 			continue
